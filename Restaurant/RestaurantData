@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Restaurant
+{
+    internal class RestaurantData
+    {
+CREATE DATABASE Restaurant;
+USE Restaurant;
+CREATE TABLE Users (
+UserID INT IDENTITY(1,1) PRIMARY KEY ,
+Username VARCHAR(50),
+Password VARCHAR(50),
+Role VARCHAR(50),
+AccessLevel INT
+);
+CREATE TABLE Menu (
+MenuID INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(50),
+Category VARCHAR(50),
+Description VARCHAR(255),
+Price DECIMAL
+);
+CREATE TABLE Orders (
+OrderID INT IDENTITY(1,1) PRIMARY KEY,
+UserID INT,
+ItemList VARCHAR(255),
+TotalAmount DECIMAL,
+Discounts DECIMAL,
+CONSTRAINT FK_UserID FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+CREATE TABLE Tables (
+TableID INT IDENTITY(1,1) PRIMARY KEY,
+Status VARCHAR(50),
+ReservationDetails VARCHAR(50)
+);
+    }
+}
