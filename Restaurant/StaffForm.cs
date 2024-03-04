@@ -218,7 +218,7 @@ namespace Restaurant
 
                         string discountText = discounts.HasValue ? $"Discounts: {discounts:C}" : "Discounts: N/A";
 
-                        string billDetails = $"OrderID: {orderID} \n UserID: {userID} \n Item List: {itemList} \n Total Amount: {totalAmount:C} \n {discountText}";
+                        string billDetails = $"OrderID: {orderID} UserID: {userID} Item List: {itemList}  Total Amount: {totalAmount:C}  {discountText}";
 
                         MessageBox.Show(billDetails, "Bill Details");
                     }

@@ -68,12 +68,13 @@
             // 
             // btnDiscount
             // 
+            this.btnDiscount.BackColor = System.Drawing.Color.Aquamarine;
             this.btnDiscount.Location = new System.Drawing.Point(618, 244);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(141, 32);
             this.btnDiscount.TabIndex = 86;
             this.btnDiscount.Text = "Apply Discount";
-            this.btnDiscount.UseVisualStyleBackColor = true;
+            this.btnDiscount.UseVisualStyleBackColor = false;
             this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // label3
@@ -120,46 +121,51 @@
             // 
             // btnDisplay
             // 
+            this.btnDisplay.BackColor = System.Drawing.Color.Aquamarine;
             this.btnDisplay.Location = new System.Drawing.Point(471, 244);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(141, 32);
             this.btnDisplay.TabIndex = 80;
             this.btnDisplay.Text = "Display Orders";
-            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.UseVisualStyleBackColor = false;
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Aquamarine;
             this.btnDelete.Location = new System.Drawing.Point(324, 244);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(141, 32);
             this.btnDelete.TabIndex = 79;
             this.btnDelete.Text = "Delete Order";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.Aquamarine;
             this.btnEdit.Location = new System.Drawing.Point(177, 244);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(141, 32);
             this.btnEdit.TabIndex = 78;
             this.btnEdit.Text = "Edit Order";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Aquamarine;
             this.btnAdd.Location = new System.Drawing.Point(28, 244);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(141, 32);
             this.btnAdd.TabIndex = 77;
             this.btnAdd.Text = "Add Order";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Teal;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(28, 378);
             this.dataGridView1.Name = "dataGridView1";
@@ -200,28 +206,31 @@
             // 
             // btnTables
             // 
+            this.btnTables.BackColor = System.Drawing.Color.Aquamarine;
             this.btnTables.Location = new System.Drawing.Point(666, 414);
             this.btnTables.Name = "btnTables";
             this.btnTables.Size = new System.Drawing.Size(403, 108);
             this.btnTables.TabIndex = 89;
             this.btnTables.Text = "View Tables";
-            this.btnTables.UseVisualStyleBackColor = true;
+            this.btnTables.UseVisualStyleBackColor = false;
             this.btnTables.Click += new System.EventHandler(this.btnTables_Click);
             // 
             // btnBill
             // 
+            this.btnBill.BackColor = System.Drawing.Color.Aquamarine;
             this.btnBill.Location = new System.Drawing.Point(618, 77);
             this.btnBill.Name = "btnBill";
             this.btnBill.Size = new System.Drawing.Size(403, 108);
             this.btnBill.TabIndex = 90;
             this.btnBill.Text = "Print Bill";
-            this.btnBill.UseVisualStyleBackColor = true;
+            this.btnBill.UseVisualStyleBackColor = false;
             this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
             // StaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1152, 671);
             this.Controls.Add(this.btnBill);
             this.Controls.Add(this.btnTables);

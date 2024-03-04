@@ -123,6 +123,8 @@ namespace Restaurant
             {
                 MessageBox.Show(ex.Message);
             }
+            txtUser.Clear();
+            txtPassword.Clear();
         }
     }
 }
