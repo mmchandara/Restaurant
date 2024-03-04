@@ -23,7 +23,7 @@ namespace Restaurant
         {
             try
             {
-                conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLOCALDB;Initial Catalog=Restaurant;User ID=sa;Password=password");
+                conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLOCALDB;Initial Catalog=MitchelRestaurant;User ID=sa;Password=password");
                 conn.Open();
             }
             catch (Exception ex)
