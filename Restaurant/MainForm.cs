@@ -30,24 +30,24 @@ namespace Restaurant
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("CREATE DATABASE MitchelRestaurant", conn))
+                using (SqlCommand cmd = new SqlCommand("IF NOT EXISTS (SELECT 1 FROM sys.databases WHERE name = 'MitchelRestaurant') CREATE DATABASE MitchelRestaurant", conn))
                 {
                     cmd.ExecuteNonQuery();
                 }
                 conn.ChangeDatabase("MitchelRestaurant");
-                using (SqlCommand user = new SqlCommand("CREATE TABLE Users (UserID INT IDENTITY(1,1) PRIMARY KEY, Username VARCHAR(50), Password VARCHAR(50), Role VARCHAR(50), AccessLevel INT)", conn))
+                using (SqlCommand user = new SqlCommand("IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users') CREATE TABLE Users (UserID INT IDENTITY(1,1) PRIMARY KEY, Username VARCHAR(50), Password VARCHAR(50), Role VARCHAR(50), AccessLevel INT)", conn))
                 {
                     user.ExecuteNonQuery();
                 }
-                using (SqlCommand menu = new SqlCommand("CREATE TABLE Menu (MenuID INT IDENTITY(1,1) PRIMARY KEY, Name VARCHAR(50), Category VARCHAR(50), Description VARCHAR(255), Price DECIMAL)", conn))
+                using (SqlCommand menu = new SqlCommand("IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Menu') CREATE TABLE Menu (MenuID INT IDENTITY(1,1) PRIMARY KEY, Name VARCHAR(50), Category VARCHAR(50), Description VARCHAR(255), Price DECIMAL)", conn))
                 {
                     menu.ExecuteNonQuery();
                 }
-                using (SqlCommand order  = new SqlCommand("CREATE TABLE Orders (OrderID INT IDENTITY(1, 1) PRIMARY KEY, UserID INT, ItemList VARCHAR(255), TotalAmount DECIMAL, Discounts DECIMAL, CONSTRAINT FK_UserID FOREIGN KEY(UserID) REFERENCES Users(UserID))", conn))
+                using (SqlCommand order  = new SqlCommand("IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Orders') CREATE TABLE Orders (OrderID INT IDENTITY(1, 1) PRIMARY KEY, UserID INT, ItemList VARCHAR(255), TotalAmount DECIMAL, Discounts DECIMAL, CONSTRAINT FK_UserID FOREIGN KEY(UserID) REFERENCES Users(UserID))", conn))
                 {
                     order.ExecuteNonQuery();
                 }
-                using (SqlCommand table  = new SqlCommand("CREATE TABLE Tables (TableID INT IDENTITY(1,1) PRIMARY KEY, Status VARCHAR(50), ReservationDetails VARCHAR(50))", conn))
+                using (SqlCommand table  = new SqlCommand("IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Tables') CREATE TABLE Tables (TableID INT IDENTITY(1,1) PRIMARY KEY, Status VARCHAR(50), ReservationDetails VARCHAR(50))", conn))
                 {
                     table.ExecuteNonQuery();
                 }
@@ -58,6 +58,10 @@ namespace Restaurant
                 using (SqlCommand menus = new SqlCommand("INSERT INTO Menu(Name, Category, Description, Price) VALUES ('Fried Rice', 'Entrée', 'Plate of Fried Rice', 12.99), ('California Roll', 'Sushi', 'Sushi Roll with imitation crab, avocado, and cucumber', 13.99), ('Crab Puffs', 'Appetizer', 'Deep fried crab ragoons', 8.99)", conn))
                 {
                     menus.ExecuteNonQuery();
+                }
+                using (SqlCommand orders = new SqlCommand("INSERT INTO Orders(UserID, ItemList, TotalAmount) VALUES (1, 'California Roll', 12.99), (2, 'Fried Rice', 13.99), (3, 'Crab puffs', 8.99)", conn))
+                {
+                    orders.ExecuteNonQuery();
                 }
                 using (SqlCommand tables = new SqlCommand("INSERT INTO Tables(Status, ReservationDetails) VALUES ('Available', 'No Reservations'), ('Occupied', 'No Reservations'), ('Reserved', 'Reservations at 6pm')", conn))
                 {
@@ -95,7 +99,6 @@ namespace Restaurant
                     if (roles != null)
                     {
                         string role = roles.ToString();
-
                         if (role == "Admin")
                         {
                             AdminForm admin = new AdminForm();
@@ -105,7 +108,6 @@ namespace Restaurant
                         {
                             ManagerForm manager = new ManagerForm();
                             manager.Show();
-
                         }
                         else
                         {

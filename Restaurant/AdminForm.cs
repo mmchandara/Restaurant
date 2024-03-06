@@ -227,5 +227,23 @@ namespace Restaurant
             txtMenuID.Clear();
             DisplayMenu();
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtUser.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtPass.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            comboRole.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            comboAccess.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMenuID.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtMenuName.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtMenuCat.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+            richDes.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtMenuPrice.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+        }
     }
 }
