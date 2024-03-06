@@ -98,5 +98,12 @@ namespace Restaurant
             txtRes.Clear();
             DisplayTable();
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtTableID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            comboStatus.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtRes.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
     }
 }

@@ -153,9 +153,9 @@ namespace Restaurant
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (dataGridView1.DataSource != null)
+                    if (row.Cells[4].Value != null && dataGridView1.DataSource != null)
                     {
-                        if (decimal.TryParse(row.Cells[1].Value.ToString(), out decimal orderAmount))
+                        if (decimal.TryParse(row.Cells[4].Value.ToString(), out decimal orderAmount))
                         {
                             totalAmount += orderAmount;
                         }
@@ -248,6 +248,16 @@ namespace Restaurant
         {
             TableForm table = new TableForm();
             table.Show();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtOrderID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtUser.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtOrderName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtAmount.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            object discountValue = dataGridView1.Rows[e.RowIndex].Cells[4].Value;
+            txtDiscount.Text = discountValue != null ? discountValue.ToString() : string.Empty;
         }
     }
 }
